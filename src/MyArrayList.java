@@ -82,6 +82,28 @@ public class MyArrayList<T> implements MyList<T> {
         }   return false;
     }
 
+    // Implement method add(T item, int index) which adds an element on the specified index and shifts elements
+    // to the right by 1
+    @Override
+    public void add(T item, int index) {
+        checkIndex(index);
+        if (this.size == array.length) {
+            Object[] newArray = new Object[array.length * 2];
+            // Copy the elements before inserting index to the new array
+            System.arraycopy(array, 0, newArray, 0, index);
+            // Insert the new element at the specified index
+            newArray[index] = item;
+            // Copy the elements after inserting index to the new array
+            System.arraycopy(array, index, newArray, index + 1, size - index);
+            array = newArray;
+        } else {
+            // Shift the existing elements to the right of the specified index by one position
+            System.arraycopy(array, index, array, index + 1, size - index);
+            // Insert the new element at the specified index
+            array[index] = item;
+        }
+        size++;
+    }
 
 
 }
