@@ -3,6 +3,7 @@ public class MyArrayList<T> implements MyList<T> {
     private Object[] array;
     //3. Define an int variable called size to keep track of the number of elements in the list.
     private int size = 0;
+
     //4. Implement the add(E element)
     @Override
     public void add(T item){
@@ -12,9 +13,7 @@ public class MyArrayList<T> implements MyList<T> {
             Object[] newArray = new Object[array.length * 2];
 
             //Copy over the elements from the original array
-            for (int i = 0; i < this.size; i++){
-                newArray[i] = array[i];
-            }
+            System.arraycopy(array, 0, newArray, 0, this.size);
 
             array = newArray;
         }
@@ -23,5 +22,18 @@ public class MyArrayList<T> implements MyList<T> {
         array[this.size] = item;
         this.size++;
     }
+
+    //5. Implement the get(int index) method
+    @Override
+    public T get(int index){
+        //If index is not in boundaries -> throw exception
+        if (index < 0 || index >= this.size){
+            throw new IndexOutOfBoundsException();
+        }
+        //Return index of an array
+        return (T) array[index];
+    }
+
+
 
 }
