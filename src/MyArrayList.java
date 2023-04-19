@@ -102,7 +102,7 @@ public class MyArrayList<T> implements MyList<T> {
             // Insert the new element at the specified index
             array[index] = item;
         }
-        size++;
+        this.size++;
     }
 
     // Implement method boolean remove
@@ -114,13 +114,21 @@ public class MyArrayList<T> implements MyList<T> {
             // Check if the current element is equal to the specified element
             if (array[i].equals(item)) {
                 // Shift all elements after the current element to the left
-                System.arraycopy(array, i + 1, array, i, size - i - 1);
-                size--;
+                System.arraycopy(array, i + 1, array, i, this.size - i - 1);
+                this.size--;
                 array[this.size] = null;
                 return true;
             }
         }
         return false;
+    }
+
+
+    // Implement method clear which clears an array
+    @Override
+    public void clear(){
+        this.array = new Object[5];
+        this.size = 0;
     }
 
 }
