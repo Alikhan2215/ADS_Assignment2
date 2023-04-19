@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class MyArrayList<T> implements MyList<T> {
     //2. Define a private instance variable of type Object[] to hold the elements of the list.
     private Object[] array;
@@ -42,17 +44,12 @@ public class MyArrayList<T> implements MyList<T> {
     public T remove(int index){
         //If index is not in boundaries -> throw exception
         checkIndex(index);
-        //Removing the element at the specified index, shifting all subsequent elements to the left by one position
-        Object[] newArray = new Object[this.size - 1];
-        for (int i = index + 1; i < this.size; i++){
-            newArray[i-1] = array[i];
-        }
-
-        array = newArray;
-        //decrementing the size variable.
+        T removedItem = (T) array[index];
+        // Shift all elements to the left of the specified index by 1
+        System.arraycopy(array, index + 1, array, index, this.size - index - 1);
         this.size--;
-
-        return (T) array;
+        array[size] = null;
+        return removedItem;
 
     }
 
@@ -155,6 +152,12 @@ public class MyArrayList<T> implements MyList<T> {
             }
         }
         return -1;
+    }
+
+    // Implement method sort which sorts an array in ascending order
+    @Override
+    public void sort(){
+        Arrays.sort((T[]) array, 0, this.size);
     }
 
 }
