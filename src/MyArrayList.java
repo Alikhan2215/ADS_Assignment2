@@ -64,5 +64,14 @@ public class MyArrayList<T> implements MyList<T> {
         }
     }
 
+    //7. Implement the size() method
+    @Override
+    public int size(){
+        //returning the size variable
+        return this.size;
+    }
+
+
+
 
 }
