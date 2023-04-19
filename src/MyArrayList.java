@@ -136,7 +136,20 @@ public class MyArrayList<T> implements MyList<T> {
     // array and returns the index at which its found. If the element is not found in the array then it returns -1
     @Override
     public int indexOf(Object o){
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < this.size; i++) {
+            if (array[i].equals(o)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+
+    // Implement method indexOf which searches for the LAST occurrence of the specified element in the
+    // array and returns the index at which its found. If the element is not found in the array then it returns -1
+    @Override
+    public int lastIndexOf(Object o){
+        for (int i = this.size - 1; i >= 0; i--) {
             if (array[i].equals(o)) {
                 return i;
             }
