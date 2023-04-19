@@ -71,6 +71,16 @@ public class MyArrayList<T> implements MyList<T> {
         return this.size;
     }
 
+    //8. Implement any other methods specified by the List interface
+    // Implement method contains which tells if is there an Object o
+    @Override
+    public boolean contains(Object o){
+        for (int i = 0; i < this.size; i++){
+            if (array[i].equals(o)){
+                return true;
+            }
+        }   return false;
+    }
 
 
 
