@@ -105,5 +105,22 @@ public class MyArrayList<T> implements MyList<T> {
         size++;
     }
 
+    // Implement method boolean remove
+    // If the element is found and removed then the method returns true. If the element is not found in the array then
+    // it returns false
+    @Override
+    public boolean remove(T item){
+        for (int i=0; i < this.size; i++){
+            // Check if the current element is equal to the specified element
+            if (array[i].equals(item)) {
+                // Shift all elements after the current element to the left
+                System.arraycopy(array, i + 1, array, i, size - i - 1);
+                size--;
+                array[this.size] = null;
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
