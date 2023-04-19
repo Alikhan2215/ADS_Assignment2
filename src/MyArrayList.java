@@ -131,4 +131,17 @@ public class MyArrayList<T> implements MyList<T> {
         this.size = 0;
     }
 
+
+    // Implement method indexOf which searches for the first occurrence of the specified element in the
+    // array and returns the index at which its found. If the element is not found in the array then it returns -1
+    @Override
+    public int indexOf(Object o){
+        for (int i = 0; i < size; i++) {
+            if (array[i].equals(o)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
 }
