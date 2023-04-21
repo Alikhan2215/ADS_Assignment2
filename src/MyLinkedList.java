@@ -17,5 +17,7 @@ public class MyLinkedList<E> implements MyList<E> {
     //Define a private instance variable called head
     private Node head;
 
+    //Define a private instance variable called tail
+    private Node tail;
 
 }
