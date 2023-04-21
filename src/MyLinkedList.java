@@ -14,7 +14,8 @@ public class MyLinkedList<E> implements MyList<E> {
             this.prev = prev;
         }
     }
-
+    //Define a private instance variable called head
+    private Node head;
 
 
 }
