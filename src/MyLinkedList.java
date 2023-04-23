@@ -43,4 +43,38 @@ public class MyLinkedList<E> implements MyList<E> {
         size++;
     }
 
+    //7. Implement the get(int index) method
+
+
+    // Added checkIndex method to not repeat myself
+    public void checkIndex(int index){
+        // If index is not in boundaries -> throw exception
+        if (index < 0 || index >= this.size){
+            throw new IndexOutOfBoundsException();
+        }
+    }
+
+    @Override
+    public E get(int index){
+        checkIndex(index);
+
+        // If the index is less than or equal to half of the size of the list - traverse from the head
+        Node current;
+        if (index <= size / 2) {
+            current = head;
+            for (int i = 0; i < index; i++) {
+                current = current.next;
+            }
+        }
+        // Otherwise, traverse from the tail
+        else {
+            current = tail;
+            for (int i = size - 1; i > index; i--) {
+                current = current.prev;
+            }
+        }
+        return current.element;
+    }
+
+
 }
