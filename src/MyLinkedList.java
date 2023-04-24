@@ -265,6 +265,39 @@ public class MyLinkedList<E> implements MyList<E> {
         }
     }
 
+    // Implement indexOf(Object o) method
+    @Override
+    public int indexOf(Object o) {
+        int index = 0;
+        Node current = head;
+        // Loop until the end of the list
+        while (current != null) {
+            // Compare the element at the current node with the given object
+            if (current.element.equals(o)) {
+                return index;
+            }
+            current = current.next;
+            index++;
+        }
+        return -1;
+    }
+
+    // Implement lastIndexOf(Object o) method
+
+    @Override
+    public int lastIndexOf(Object o) {
+        int index = size - 1;
+        Node current = tail;
+        while (current != null) {
+            if (current.element.equals(o)) {
+                return index;
+            }
+            current = current.prev;
+            index--;
+        }
+        return -1;
+    }
+
 
 
 }
