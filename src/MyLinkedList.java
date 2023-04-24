@@ -228,6 +228,43 @@ public class MyLinkedList<E> implements MyList<E> {
         tail = null;
         size = 0;
     }
+    // Implement void sort() method
+    @Override
+    public void sort() {
+        if (head != null) {
+            Node current = null,
+                    new_head = null,
+                    move_node = null,
+                    prev = null;
+            while (head != null) {
+                prev = null;
+                current = head;
+                move_node = head;
+                while (current != null) {
+                    // When current node value is greater than previous node
+                    if (current.next != null && ((Comparable<E>) current.next.element).compareTo(move_node.element) > 0) {
+                        //Swap node values
+                        move_node = current.next;
+                        prev = current;
+                    }
+                    current = current.next;
+                }
+                if (move_node == head) {
+                    head = (head).next;
+                }
+                if (prev != null) {
+                    prev.next = move_node.next;
+                }
+                move_node.next = new_head;
+                new_head = move_node;
+            }
+            //make new head
+            head = new_head;
+        } else {
+            System.out.println("Empty Linked list");
+        }
+    }
+
 
 
 }
