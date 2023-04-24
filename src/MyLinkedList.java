@@ -129,5 +129,44 @@ public class MyLinkedList<E> implements MyList<E> {
         return false;
     }
 
+    // Implement the add(E item, int index)
+    public void add(E item, int index) {
+        checkIndex(index);
+
+        // Create a new Node object with the specified item
+        Node newNode = new Node(item, null, null);
+
+        // If the list is currently empty, the new node becomes both the head and tail of the list
+        if (size == 0) {
+            head = tail = newNode;
+        }
+        // If the index is 0, the new node becomes the new head of the list
+        else if (index == 0) {
+            newNode.next = head;
+            head.prev = newNode;
+            head = newNode;
+        }
+        // If the index is equal to the size of the list, the new node becomes the new tail of the list
+        else if (index == size) {
+            newNode.prev = tail;
+            tail.next = newNode;
+            tail = newNode;
+        }
+        // Otherwise, traverse the list to find the node just before the specified index
+        else {
+            Node current = head;
+            for (int i = 0; i < index; i++) {
+                current = current.next;
+            }
+            // Get the previous node and insert the new node between the previous node and the current node
+            Node prevNode = current.prev;
+            newNode.prev = prevNode;
+            newNode.next = current;
+            prevNode.next = newNode;
+            current.prev = newNode;
+        }
+
+        size++;
+    }
 
 }
