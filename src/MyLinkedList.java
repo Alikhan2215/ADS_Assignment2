@@ -105,5 +105,12 @@ public class MyLinkedList<E> implements MyList<E> {
         return current.element;
     }
 
+    //9. Implement the size() method
+    @Override
+    public int size() {
+        return size;
+    }
+
+
 
 }
