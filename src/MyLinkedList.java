@@ -111,6 +111,23 @@ public class MyLinkedList<E> implements MyList<E> {
         return size;
     }
 
+    //10. Implement any other methods from MyList interface
+    // Implement the contains(Object o) method
+    @Override
+    public boolean contains(Object o) {
+        Node current = head;
+        // While the current node is not null, iterate through the linked list.
+        while (current != null) {
+            // If the element in the current node is equal to the specified object, return true.
+            if (current.element.equals(o)) {
+                return true;
+            }
+            // Otherwise move to the next node in the linked list.
+            current = current.next;
+        }
+        // If we reach the end of the linked list without finding the specified object, return false.
+        return false;
+    }
 
 
 }
