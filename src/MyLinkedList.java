@@ -169,4 +169,45 @@ public class MyLinkedList<E> implements MyList<E> {
         size++;
     }
 
+    // Implement remove(E item) method
+    @Override
+    public boolean remove(E item) {
+        // Traverse the list to find the node that contains the specified item
+        Node current = head;
+        while (current != null) {
+            if (current.element.equals(item)) {
+                // If the node is the head of the list, set the head to the next node
+                if (current == head) {
+                    head = current.next;
+                    if (head != null) {
+                        head.prev = null;
+                    } else {
+                        tail = null;
+                    }
+                }
+                // If the node is the tail of the list, set the tail to the previous node
+                else if (current == tail) {
+                    tail = current.prev;
+                    if (tail != null) {
+                        tail.next = null;
+                    } else {
+                        head = null;
+                    }
+                }
+                // Otherwise remove the node by updating the next and previous nodes
+                else {
+                    current.prev.next = current.next;
+                    current.next.prev = current.prev;
+                }
+                size--;
+                return true;
+            }
+            // Move to the next node in the list
+            current = current.next;
+        }
+        // If the item was not found in the list return false
+        return false;
+    }
+
+
 }
