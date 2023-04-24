@@ -209,5 +209,25 @@ public class MyLinkedList<E> implements MyList<E> {
         return false;
     }
 
+    // Implement void clear() method
+    @Override
+    public void clear() {
+        // Traverse the list from the head to the tail
+        Node current = head;
+        while (current != null) {
+            Node next = current.next;
+            // Set the references of the current node to null to release memory
+            current.element = null;
+            current.next = null;
+            current.prev = null;
+            // Move to the next node in the list
+            current = next;
+        }
+        // Reset the head, tail, and size of the list
+        head = null;
+        tail = null;
+        size = 0;
+    }
+
 
 }
