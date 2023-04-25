@@ -1,5 +1,6 @@
 public class Main {
     public static void main(String[] args) {
+        /*
         MyArrayList<String> arrayList = new MyArrayList();
         arrayList.add("Banana");
         arrayList.add("Apple");
@@ -117,5 +118,24 @@ public class Main {
             System.out.print(intList2.get(i) + " ");
         }
         System.out.println();
+
+         */
+
+        MyArrayList<Integer> array = new MyArrayList<>();
+        array.add(1);
+        array.add(1);
+        array.add(1);
+        array.add(2);
+        array.add(2);
+        System.out.println("Array before deleting duplicates: ");
+        for (int i = 0; i < array.size(); i++) {
+            System.out.print(array.get(i) + " ");
+        }
+        System.out.println();
+        System.out.println("Array after deleting duplicates: ");
+        array.deleteDuplicates();
+        for (int i = 0; i < array.size(); i++) {
+            System.out.print(array.get(i) + " ");
+        }
     }
 }

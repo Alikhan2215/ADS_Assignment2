@@ -160,4 +160,16 @@ public class MyArrayList<T> implements MyList<T> {
         Arrays.sort((T[]) array, 0, this.size);
     }
 
+    @Override
+    public void deleteDuplicates(){
+        for (int i = 0; i < this.size; i++){
+            for (int j = 1; j < this.size; j++){
+                if (array[i].equals(array[j])){
+                    System.arraycopy(array, j + 1, array, j, this.size - j - 1);
+                    this.size--;
+                }
+            }
+        }
+    }
+
 }

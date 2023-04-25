@@ -298,6 +298,11 @@ public class MyLinkedList<E> implements MyList<E> {
         return -1;
     }
 
+    @Override
+    public void deleteDuplicates(){
+        System.out.println("No method was implemented yet");
+    }
+
 
 
 }
